@@ -50,7 +50,8 @@ void askQuestion([bool infinite = false]) async {
     var incorrectAnswers = decodedData["results"][0]["incorrect_answers"];
 
     List<String> allOptions = [...incorrectAnswers, correctAnswer];
-    allOptions.map((e) => unescape.convert(e)).toList();
+    allOptions = allOptions.map(unescape.convert).toList();
+    print(allOptions);
     allOptions.shuffle();
 
     final selection = Select(
